@@ -1,0 +1,41 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 27
+    buildToolsVersion '27.0.3'
+
+    defaultConfig {
+//        testInstrumentationRunnerArguments finish: "300", url: "https://chromium.github.io/octane/" //"http://krakenbenchmark.mozilla.org/kraken-1.1/driver.html" //"http://www.webkit.org/perf/sunspider-1.0.2/sunspider-1.0.2/driver.html" //
+//        testInstrumentationRunnerArguments finish:"300",timeout:"60",points:"linksys_2.4,1234567890,linksys_5.0,1234567890,BSP_TEST1_2.4G,qwerty@#,BSP_TEST1_5G,qwerty@#,MM-Guest,GuestAccess2016,MM-Guest,GuestAccess2017,RhondaGuest,GuestInternet_2017,RhondaGuestAC,GuestInternet_2017"
+//        testInstrumentationRunnerArguments replace:"False",apk:"Quadrant_Pro_2_1_1.apk",downgrade:"False"
+//        testInstrumentationRunnerArguments finish:"1200", permissions:"[MEDIA,PHONE,PICTURES,LOCATION]"
+//        testInstrumentationRunnerArguments finish:"500",demo_button:"0.59,0.312",start_button:"0.77,0.633",letsgo_button:"0.122,0.775"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        applicationId "kernel.bsp.test.ui.benchmarks"
+        minSdkVersion 21
+        targetSdkVersion 27
+        versionCode 4
+        versionName "0.0.5"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            debuggable false
+        }
+        debug {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            debuggable true
+        }
+    }
+}
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation 'com.android.support:appcompat-v7:27.0.1'
+    implementation 'com.android.support:support-v4:27.0.1'
+    androidTestImplementation 'com.android.support:support-annotations:27.0.1'
+    androidTestImplementation 'com.android.support.test.uiautomator:uiautomator-v18:2.1.3'
+    androidTestImplementation 'com.android.support.test:runner:1.0.1'
+}
+
